@@ -1,0 +1,171 @@
+\documentclass{homeworg}
+
+\AtBeginDocument{\title{Entrega, Geometría Lineal}
+\author{\hspace{\halte}\hspace{-4.02em}\normalsize Benaroya~Garzas, Isidro\\
+\hspace{\halte}\normalsize Carpes~Martínez, Antonio~Alberto\\
+\hspace{\halte}\hspace{-2.74em}\normalsize Muela~Cascallana, Juan~José\\
+\hspace{\halte}\hspace{-5.35em}\normalsize Salamanca~Camacho, Jaime\\
+\hspace{\halte}\hspace{1.68em}\normalsize Wu, Xiaoye}}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{systeme}
+\usepackage{tikz}
+\RequirePackage[spanish]{cleveref}
+\input{def}
+
+\begin{document}
+\renewcommand{\proofname}{Solución}
+
+\maketitle
+
+\normalsize
+\exercise
+Sean $L:=\qty{x_{1}=0}$ y $$X:=\qty{\qty[x_{0}:x_{1}:x_{2}]\in\P^{2}:x_{0}^{4}x_{2}-x_{1}^{5}+x_{1}x_{0}^{4}+x_{0}^{5}=0}$$
+\begin{enumerate}[label=\roman*)]
+\item Determinar si $X$ es una variedad proyectiva.
+\item Determinar si la intersección $L\cap X$ es una subvariedad proyectiva y en caso negativo, calcular $\V\qty(L\cap X)$.
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}[label=\roman*)]
+\item[]
+\item Tomamos los siguientes puntos:
+$$P_{0}=\qty[0:0:1],\hmid P_{1}=\qty[-1:1:1];$$
+se puede comprobar con facilidad que $P_{0},P_{1}\in X$, por lo que si $X$ fuese una variedad proyectiva, se tendría que $V=\V\qty(\qty{P_{0},P_{1}})\subset X$.
+
+$V$, al ser una recta, está descrita por una ecuación de la forma:
+$$V:\alpha_{0}x_{0}+\alpha_{1}x_{1}+\alpha_{2}x_{2}=0,$$sustituyendo los puntos $P_{i}$, tenemos el siguiente sistema de $\alpha_{i}$:
+\begin{equation*}
+\left\{
+\begin{split}
+\alpha_{0}&=\alpha_{1},\\
+\alpha_{2}&=0;
+\end{split}
+\right.\hmidthen V=\qty{x_{0}+x_{1}=0}
+\end{equation*}
+Podemos ver que el punto $Q=[2:-2:3]\in V$, pero no satisface la ecuación de $X$, por lo que $V\not\subset X$, y consecuentemente se determina que $X$ no es una variedad proyectiva.
+
+\item La intersección $W=L\cap X$ está descrita por la siguiente ecuación:
+\begin{equation}\label{eq:1.1}
+W:x_{0}^{4}x_{2}+x_{0}^{5}=0,
+\end{equation}
+Despejando la ecuación \eqref{eq:1.1}, $W$ sólo contiene dos puntos en $\P^{2}$:
+$$P_{2}=[0:0:1],\hmid P_{3}=[1:0:-1]$$
+Calculamos por tanto $Z=\V\qty(W)=\V\qty(\qty{P_{2},P_{3}})$; sea la ecuación:
+$$Z:\beta_{0}x_{0}+\beta_{1}x_{1}+\beta_{2}x_{2}=0,$$
+Sustituyendo los puntos $P_{2}$ y $P_{3}$, tenemos que:
+$$\left\{
+\begin{split}
+0=\beta_{0}&=\beta_{2},\\
+\beta_{1}&\in\K;
+\end{split}
+\right.\hmidthen Z=L=\qty{x_{1}=0}$$
+Tenemos por tanto $\V\qty(L\cap X)=L$, y como $L\backslash (L\cap X)$ no es vacío\footnote{Por ejemplo, $Q=[2:0:1]\in L\backslash (L\cap X)$.}, $L\cap X$ no es una subvariedad proyectiva.
+
+\end{enumerate}
+\end{proof}
+
+\exercise
+Consideramos en $\P^{3}$ punto $P:=\qty[0:0:1:2]$ y las rectas:
+\begin{equation*}
+L_{1}:=\systeme{x_{0}+x_{1}+x_{2}+x_{3}=0;, 
+        x_{2}-x_{3}=0;}\hmid \text{y}\hmid L_{2}:=\systeme{x_{1}+x_{2}+x_{3}=0;,
+        x_{2}+x_{3}=0.}
+\end{equation*}
+
+\begin{enumerate}[label=\roman*)]
+\item Exhibir ecuaciones implícitas de todas las rectas que pasan por el punto $P$ y cortan a la recta $L_{1}$.
+\item Exhibir ecuaciones implícitas de todas las rectas que pasan por el punto $P$ y cortan a la recta $L_{2}$.
+\item Exhibir ecuaciones implícitas de todas las rectas que pasan por $P$ y cortan a $L_{1}$ y a $L_{2}$. Calcular en dichos casos $L\cap L_{1}$ y $L\cap L_{2}$.
+\end{enumerate}
+
+\begin{proof}\myblue
+
+\begin{enumerate}[label=\roman*)]
+\item[]
+\item En primer lugar obtendremos la expresión de un punto genérico $P_1$ de la recta $L_1$ a través de sus ecuaciones paramétricas. Estas ecuaciones las podemos obtener tomando dos puntos cualesquiera de la recta. En nuestro caso valdrían los puntos $$Q_1=\left[1:1:-1:-1\right]\hmid\text{y}\hmid Q_2=\left[ 1:-1:0:0\right].$$
+    
+    Considerando la proyección canónica del espacio vectorial al proyectivo $\pi :\K^4 \to \P^3$, $u\mapsto \left[u \right]$, podemos definir los vectores de $\K^4$ asociados a los puntos $Q_i$ como $$u_1:=(1,1,-1,-1)\hmid \text{y}\hmid u_2:=(1,-1,0,0).$$
+    
+    El subespacio vectorial asociado a la recta proyectiva $L_1$ vendrá dado por esos dos vectores, que son linealmente independientes $$\hatt{L_1}=\pi ^{-1}(L_1)\cup \{0\}=L(\{u_1,u_2 \}).$$ Por tanto, unas ecuaciones paramétricas del plano vectorial $\hatt{L_1}$ con respecto a la base estándar de $\K^4$ son:
+    \begin{equation*}
+     \hatt{L_{1}}:\left\{\begin{aligned} x_{0}& =\\x_1 & = \\x_2 & =\\x_3 & =\\\end{aligned}\sysdelim. . \systeme[rst]{\lambda +\mu , {-}\lambda  + \mu , {-} \mu, {-} \mu}\right. \hmid \text{con} \hmid  (\lambda,\mu ) \in \K^2\end{equation*}
+     Por lo que las ecuaciones paramétricas de $L_1$ respecto de la referencia estándar de $\P^3$ son:
+     \begin{equation*}
+{L_{1}}:\left\{\begin{aligned} x_{0}& =\\x_1 & = \\x_2 & =\\x_3 & =\\\end{aligned}\sysdelim. . \systeme[rst]{\lambda +\mu , {-}\lambda  + \mu , {-} \mu, {-} \mu}\right. \hmid \text{con} \hmid  [\lambda:\mu] \in \P^1
+     \end{equation*}
+     
+     En consecuencia, tenemos que el punto genérico de $L_1$ es $P_1=\left[ \mu+\lambda:\mu-\lambda:-\mu:-\mu \right] $ con $\left[ \lambda:\mu \right] \in \P^1$. Por tanto todas las rectas $L_1'$ que pasen por el punto $P$ y corten a la recta $L_1$ pasarán también por el punto $P_1$. Por tanto ya sabemos que $L_1'=\V\qty(\qty{P,P_1})$ por ser los dos puntos independientes y podemos obtener fácilmente unas ecuaciones implícitas:
+     \begin{equation*}
+         L_1': \rg\begin{pmatrix*}[r] x_0 & \lambda+\mu & 0 \\ x_1 & -\lambda+\mu & 0 \\ x_2 & -\mu & 1 \\ x_2 & -\mu & 2 \end{pmatrix*}=2
+         \hmidthen L_{1}':\systeme[x_{0}x_{1}x_{2}x_{3}]{{(\mu-\lambda)} x_{0}-{(\mu+\lambda)} x_{1}=0;,-{\mu} x_{1}-{2(\mu-\lambda)} x_{2}+{(\mu-\lambda)}x_{3}=0;}
+     \end{equation*}
+     con la restricción $[\lambda:\mu]\in\P^{1}$.
+     
+     \clearpage
+     
+     \item Para este segundo apartado seguiremos un procedimiento completamente análogo al anterior. Tomamos dos puntos cualesquiera $R_1,R_2 \in L_2$ de forma que $L_2=\V(\{R_1,R_2\})$. 
+     
+     Por ejemplo podemos escoger $$R_1=\left[1:0:0:0\right]\hmid\text{y}\hmid R_2=\left[0:2:-1:1\right].$$ 
+     
+     De esta forma unas ecuaciones paramétricas de la recta $L_2$ con respecto a la referencia estándar serían:
+         \begin{equation*}
+            L_2:\left\{\begin{aligned} x_{0}& =\\x_1 & = \\x_2 & =\\x_3 & =\\\end{aligned}\sysdelim. . \systeme[rst]{\alpha , 2\beta, {-}\beta, \beta}\right.\hmid \text{con}\hmid \qty[\alpha:\beta] \in \P^1.
+         \end{equation*}
+   Por tanto, podemos escribir el punto genérico de $L_2$ como $$P_2=\qty[\alpha: 2\beta: -\beta: \beta]\hmid\text{con}\hmid\qty[ \alpha:\beta] \in \P^1.$$ Siguiendo el mismo razonamiento que en el apartado anterior sabemos que la recta $L_2'$ que pasa por el punto $P$ y corta a $L_2$ también pasa por el punto $P_2$. Como estos dos puntos son independientes sabemos que $L_2'=\V(\{P,P_2\})$ y por tanto podemos obtener fácilmente unas ecuaciones implícitas:
+\begin{equation*}
+         L_2': \rg\begin{pmatrix*}[r]
+         x_0 & \alpha & 0 \\ 
+         x_1 & 2\beta & 0 \\ 
+         x_2 & -\beta & 1 \\ 
+         x_2 & \beta & 2 \end{pmatrix*}=2 \hmidthen L_2': \systeme{2\beta x_0 -\alpha x_1=0, -3\beta x_1-4\beta x_2+2\beta x_3=0},\hmid \text{con}\hmid \qty[\alpha:\beta]\in\P^{1}.
+     \end{equation*}
+
+\item La recta $L$ que verifica estas condiciones es un caso particular de la recta $L_1'$ y además un caso particular de la recta $L_2'$ calculadas en los apartados anteriores. Por lo tanto tendrá que cumplir las ecuaciones de $L_1'$ y de $L_2'$ simultáneamente para un cierto $\qty[\lambda:\mu] \in \P^1$ y para un $\qty[\alpha:\beta] \in \P^1$. A la vista de nuestras ecuaciones implícitas simplemente basta con igual coeficientes para cada coordenada (siempre salvo proporcionalidad). Por tanto,
+    \begin{equation*}
+        \systeme[\mu \lambda \alpha \beta]{\mu - \lambda -2\beta =  0 , \mu + \lambda -\alpha = 0 , \mu -3\beta = 0 , 2\mu - 2\lambda -4\beta=  0} \hmidthen \systeme{\lambda=\beta,\mu=3\beta,\alpha=4\beta,\beta=\beta}
+    \end{equation*}
+    Sustituyendo todo en función de $\beta$ en las ecuaciones de $L_2'$ obtenemos las ecuaciones implícitas de $L$:
+    \begin{equation*}
+           L: \systeme{2\beta x_0 -4\beta x_1    =0, -3\beta x_1-4\beta x_2+2\beta x_3=0} \hmid\text{con}\hmid \qty[\alpha:\beta] \in \P^1.
+     \end{equation*}
+     
+     Como tenemos que $\beta \neq 0$ podemos suponer $\beta = -1$, por lo que $\left[ \alpha:\beta \right]=\qty[\frac{\alpha}{-\beta}:-1 ] \in \P^1$. Con esto podemos reescribir las ecuaciones implícitas de $L$ como
+         \begin{equation*}
+           L: \systeme{- x_0 +2 x_1    =0,  3 x_1+4 x_2-2 x_3=0.}
+     \end{equation*}
+     Para calcular $L \cap L_1$ simplemente tenemos que concatenar las ecuaciones y eliminar una ecuación redundante:
+      \begin{equation*}
+           L \cap L_1: \systeme{x_0 + x_1 +  x_2  +  x_3=0,    x_2 -  x_3=0, - x_0 +2 x_1    =0}
+           \hmidthen           L \cap L_1: \left\{\begin{aligned} x_{0}& =\\x_1 & = \\x_2 & =\\x_3 & =\\\end{aligned}\sysdelim. . \systeme[rst]{2\gamma, \gamma, {-}\frac{3}{2}\gamma, {-}\frac{3}{2}\gamma}\right.
+     \end{equation*}
+Tomando $\gamma=2$ puesto que $x_1 \neq 0$ tenemos que $L \cap L_1:=\qty{[ 4:2:-3:-3]}$.
+
+Para calcular $L \cap L_2$ seguimos un proceso completamente análogo al caso anterior:
+ \begin{equation*}
+           L \cap L_2: \systeme{  x_1 +  x_2  -  x_3=0 ,    x_2 +  x_3=0 , - x_0 +2 x_1    =0}
+           \hmidthen
+           L \cap L_2: \left\{\begin{aligned} x_{0}& =\\x_1 & = \\x_2 & =\\x_3 & =\\\end{aligned}\sysdelim. . \systeme[rst]{2\rho, \rho, {-}\frac{1}{2}\rho, \frac{1}{2}\rho}\right.
+     \end{equation*}
+Tomando $\rho=2$ puesto que $x_1 \neq 0$ y tenemos que $L \cap L_2:=\qty{\qty[4:2:-1:1]}$. 
+
+
+
+\end{enumerate}
+
+\end{proof}
+
+
+\exercise
+Consideremos en $\P^{3}$ los puntos $A:=\qty[1:0:0:0]$ y $B:=\qty[0:1:0:0]$ y las rectas $$L_{1}:=\qty{x_{0}=x_{1},\ x_{2}=0}\hmid \text{y}\hmid L_{2}:=\qty{x_{0}+x_{1}=0,\ x_{3}=0}.$$Sea $f:\P^{3}\xto{} P^{3}$ una aplicación proyectiva que transforma $A$ en $B$ y deja fijos todos los puntos de $L_{1}\cup L_{2}$.
+
+\begin{enumerate}[label=\roman*)]
+\item Probar que $L_{1}$ y $L_{2}$ no son coplanarias.
+\item Calcular la familia de los planos que contienen a la recta $L_{i},\ i=1,2$.
+\item Demostrar que los planos que contienen a las rectas $L_{i}$ son invariantes por $f$ para $i=1,2$.
+\item ?`Es $f$ una homografía??`Es única?
+\item Hallar la matriz respecto de la referencia proyectiva estándar de $f:\P^{3}\xto{} \P^{3}$.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,209 @@
+\definecolor{mygreen}{HTML}{446600}
+\definecolor{myblue}{cmyk}{1,.72,0,0.3}
+\definecolor{myred}{cmyk}{0,.91,.79,.56}
+
+\renewcommand{\bar}[1]{\overline{#1}}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+%\DeclareMathSizes{5}{5}{4.2}{4}
+
+\renewcommand{\thefootnote}{\roman{footnote}}
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(0:2cm) circle (1.5cm)}
+
+%\colorlet{line}{myblue}
+
+    
+
+%\everymath\expandafter{\the\everymath \color{MidnightBlue}}
+%\everydisplay\expandafter{\the\everydisplay \color{myblue}}
+
+\newcommand{\rot}[1]{\text{rot}({#1})}
+\newcommand{\myblue}{\color{myblue}}
+\newcommand{\dive}[1]{\text{div}({#1})}
+\makeatletter
+\newcommand*{\transpose}{%
+  {\mathpalette\@transpose{}}%
+}
+\newcommand*{\@transpose}[2]{%
+  % #1: math style
+  % #2: unused
+  \raisebox{\depth}{$\m@th#1\intercal$}%
+}
+\makeatother
+
+
+\renewcommand{\dot}[1]{
+  \accentset{\mbox{\bfseries .}}{#1}}
+%\renewcommand{\vec}[1]{{\color{MidnightBlue}\bold{#1}}}
+\newcommand{\bfemph}[1]{\textbf{\emph{#1}}}
+\newcommand{\hlb}[1]{{\sethlcolor{LightBlue}\hl{#1}}}
+\newcommand{\partials}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*\then[1][\text{}]{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny #1}}}{\Rightarrow}}}
+\newcommand{\smol}[1]{{\fontsize{4}{5}\selectfont #1 }}
+\newcommand{\ssmol}[1]{{\fontsize{3}{4}\selectfont #1 }}
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\V}{\texttt{V}}  
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Ss}{\pazocal{S}}
+\newcommand{\omegab}[0]{\color{myblue}{\vect{\upomega}}}
+\newcommand{\pbrac}[2]{\{#1,#2\}}
+\newcommand{\tqp}[0]{(t,\vec{q},\vec{p})}
+\newcommand{\dif}[2]{\frac{\text{d} #1}{\text{d} #2}}
+\newcommand{\diff}[1]{\Big(\frac{\text{d} #1}{\text{d}t}\Big)_{\text{f}}}
+\newcommand{\difm}[1]{\Big(\frac{\text{d} #1}{\text{d}t}\Big)_{\text{m}}}
+\newcommand{\vect}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\ext}{^{(\text{e})}}
+\newcommand{\ls}{\ \ \ \ }
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\mathring}[1]{\accentset{\circ}#1}
+\newcommand{\interior}[1]{\accentset{\circ}#1}
+
+
+% ===============================================
+% MATH
+% ===============================================
+\newcommand*\tq{\text{ tal que }}
+\newcommand*\con{\ |\ }
+\newcommand*\Sea{\text{Sea }}
+\newcommand*\sea{\text{sea }}
+\newcommand*\grado{\text{deg}}
+\newcommand*\maxim[1]{\text{m\'ax}(#1)}
+\newcommand*\minim[1]{\text{m\'in}(#1)}
+\newcommand*\minimb[1]{\text{m\'in}\{#1\}}
+\newcommand*\mcd[1]{\text{mcd}(#1)}
+\newcommand*\mcdb[1]{\text{mcd}\{#1\}}
+\newcommand*\mcm[1]{\text{mcm}(#1)}
+\newcommand*\mcmb[1]{\text{mcm}\{#1\}}
+\newcommand{\doubleline}[2]{$\left\{
+                \begin{array}{ll}
+                  #1\\
+                  #2\\
+                \end{array}
+              \right.$
+  }
+\newcommand{\mdoubleline}[2]{\left\{
+                \begin{array}{ll}
+                  #1\\
+                  #2\\
+                \end{array}
+              \right.
+  }
+\newcommand*\oops{        {\small{\text{\underline{ABSURDO}}}}}
+\newcommand*\ok{        {\underline{OK}}}
+\newcommand\eqq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny ?}}}{=}}}
+
+\newcommand\textlesser[1]{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny #1}}}{<}}}
+\newcommand\textto[1]{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny #1}}}{\longrightarrow}}}
+\newcommand\inq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny ?}}}{\in}}}
+
+
+
+\newcommand*{\spaces}{\hspace{1em}}
+
+
+
+% ===============================================
+% Integration
+% ===============================================
+\newcommand{\rst}[1]{\big|
+_{#1}}
+\newcommand{\intl}{\int\limits}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand*\upper[1]{\mathscr{U}(#1)}
+\newcommand*\lowerr[1]{\mathscr{L}(#1)}
+\renewcommand*\H{\mathscr{H}}
+\newcommand*\vol[1]{\text{vol}(#1)}
+\newcommand*\sumall[1]{\sum_{#1 =1}}
+\newcommand*\Sumall[1]{\sum\limits_{#1 =1}}
+\newcommand*\toinfty{^{\infty}}
+\newcommand*\minimm[1]{\text{m}_{#1}}
+\newcommand*\maximm[1]{\text{M}_{#1}}
+\newcommand*\alphlist[1]{
+\begin{enumerate}[label=\textbf{(\alph*)}]
+#1
+\end{enumerate}
+}
+\newcommand*\defb[1]{\{#1\}}
+\newcommand*\deffb[1]{\Bigg\{#1\Bigg\}}
+\newcommand*\tvec[2]{t_{#1;#2}=\partials{\Phi_{#1}}{#2}}
+\newcommand{\compl}{\mathsf{c}}
+\newcommand{\hmidthen}{\hmid \then \hmid}
+
+
+\renewcommand{\figurename}{Fig.}
+
+
+
+\newcommand{\bola}[1]{\text{B}(#1)}
+\newcommand{\bolac}[1]{\bar{\text{B}}(#1)}
+
+\newcommand{\ep}{\text{exp}}
+
+\newcommand{\ord}[1]{\text{ord}\ #1}
+\newcommand{\hmid}{\hspace{3em}}
+\newcommand{\hsma}{\hspace{1em}}
+\newcommand{\pa}{\texttt{Péndulos acoplados.xlsx}}
+\newcommand{\mig}{\texttt{ Momento Inercia Giroscopo.xlsx }}
+
+
+\newcommand{\ninfty}{\ \overset{n\to \infty}{\longrightarrow}\ }
+\newcommand{\rtn}[1]{\sqrt[\leftroot{-3}\uproot{3}n]{#1}}
+\newcommand{\rtnp}[1]{\sqrt[\leftroot{-3}\uproot{3}n]{_{p}#1}}
+\newcommand{\rtNp}[1]{\sqrt[\leftroot{-3}\uproot{3}N]{_{p}#1}}
+\newcommand{\rtf}[2]{\sqrt[\leftroot{-3}\uproot{3}#1]{#2}}
+\newcommand{\rtff}[3]{\sqrt[\leftroot{-3}\uproot{3}#1]{_{#3}#2}}
+\newcommand{\clim}[2]{\lim\limits_{\substack{#1 \\ #2}}}
+\newcommand{\Lim}[1]{\lim\limits_{#1}}
+\newcommand{\impeq}{\overset{\text{i}}{\equiv}}
+\newcommand{\peq}{\overset{\text{p}}{\equiv}}
+\renewcommand{\L}{\mathscr{L}}
+\renewcommand{\and}{\ \wedge\ }
+\renewcommand{\eqref}[1]{[\ref{#1}]}
+\newcommand{\halte}{2.2em}
+\newcommand{\rg}{\text{rg}}
+
+\newcommand{\xto}[2][->]{
+% correct vertical setting by egreg:
+% http://tex.stackexchange.com/a/59660/13304
+\tikz[baseline=-\the\dimexpr\fontdimen22\textfont2\relax]{
+\node[anchor=south,font=\scriptsize, inner ysep=1.5pt,outer xsep=5pt](x){#2};
+\draw[thick,shorten <=2pt,shorten >=3.4pt,dashed,#1](x.south west)--(x.south east);
+}
+}
+
+
+
+\usepackage{scalerel,stackengine}
+\stackMath
+\newcommand\hatt[1]{%
+\savestack{\tmpbox}{\stretchto{%
+  \scaleto{%
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern.1pt\mathchar"0362\kern.1pt}%
+    {\rule{0ex}{\textheight}}%WIDTH-LIMITED CIRCUMFLEX
+  }{\textheight}% 
+}{2.4ex}}%
+\stackon[-6.9pt]{#1}{\tmpbox}%
+}
+\parskip 1ex
+
+
+\usepackage{xstring}
+
+\def\typesystem#1{%
+    \begingroup\expandarg
+    %\baselineskip=1.5\baselineskip% 1.5 to enlarge vertical space between lines
+    \StrSubstitute{\noexpand#1}+{&+&}[\tempsystem]%
+    \StrSubstitute\tempsystem={&=&}[\tempsystem]%
+    \StrSubstitute\tempsystem,{\noexpand\cr}[\tempsystem]%
+    $\vcenter{\halign{&$\hfil\strut##$&${}##{}$\cr\tempsystem\crcr}}$%
+    \endgroup
+}
